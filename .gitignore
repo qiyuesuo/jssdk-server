@@ -1,0 +1,6 @@
+.idea
+.vs
+target
+packages
+__pycache__
+obj
