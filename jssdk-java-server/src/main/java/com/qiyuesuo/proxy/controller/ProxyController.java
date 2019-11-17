@@ -36,14 +36,8 @@ public class ProxyController {
 	 */
 	protected void init() {
 		this.forwardingHost = "https://openapi.qiyuesuo.cn";
-		this.accessToken = "v7Xb9KNogN";
-		this.accessSecret = "kAt5C7ibSuoZiM5ixOUP0NbjmSmkvX";
-//		this.accessToken = "wcO4jiIt4P";
-//		this.accessSecret = "0MDA5ahiZmKsfznVWY1JpYw50EMJCA";
-//		this.accessToken = "ocy2nnWLgl";
-//		this.accessSecret = "8SrxjhAc9uUfQj2BJ9NehnSmVbRetb";
-//		this.accessToken = "6kUVn64VpE";
-//		this.accessSecret = "avKo0Or9CZnDlfmAGptaBOzPbXX4Dm";
+		this.accessToken = "开放平台申请所得的Token";
+		this.accessSecret = "开放平台申请所得的Secret";
 	}
 
 	ProxyController() {
