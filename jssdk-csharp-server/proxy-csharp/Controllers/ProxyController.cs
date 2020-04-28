@@ -89,7 +89,7 @@ namespace proxy_csharp.Controllers
                     string provider = await Request.Content.ReadAsStringAsync();
                     requestData = System.Web.HttpUtility.UrlDecode(provider.Substring(12));
                 }
-                // 组装请求请求到契约锁服务器
+                // 组装请求请求到远程服务器
                 HttpParamers paramers = HttpParamers.GetParamers();
                 paramers.AddParamer("requestData", requestData);
                 if (fileStream != null && fileStream.Length != 0)

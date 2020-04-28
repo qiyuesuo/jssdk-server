@@ -30,12 +30,12 @@ public class ProxyController {
 	/**
 	 * 初始化转发服务地址
 	 * 使用前必须实例化以下三个参数：
-	 * forwardingHost：转发地址，测试环境地址：https://openapi.qiyuesuo.cn、生产环境地址：https://openapi.qiyuesuo.com
+	 * forwardingHost：转发地址到的开放平台地址
 	 * accessToken：开放平台申请所得的Token
 	 * accessSecret：开放平台申请所得的Secret
 	 */
 	protected void init() {
-		this.forwardingHost = "https://openapi.qiyuesuo.cn";
+		this.forwardingHost = "开放平台请求地址";
 		this.accessToken = "开放平台申请所得的Token";
 		this.accessSecret = "开放平台申请所得的Secret";
 	}

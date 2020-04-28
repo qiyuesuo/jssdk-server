@@ -11,19 +11,19 @@ namespace proxy_csharp.App_Start
 
         private string accessToken;// 开放平台App Token
         private string accessSecret;// 开放平台App Secret
-        private string accessUrl;//开放平台请求地址，测试环境：https://openapi.qiyuesuo.cn ， 正式环境：https://openapi.qiyuesuo.com
+        private string accessUrl;//开放平台请求地址
 
         /// <summary>
         /// 修改下方配置为您个人配置
         /// accessToken：开放平台 App Token
         /// accessSecret：开放平台 App Secret
-        /// accessUrl:开放平台请求地址，测试环境：https://openapi.qiyuesuo.cn ， 正式环境：https://openapi.qiyuesuo.com
+        /// accessUrl:开放平台请求地址
         /// </summary>
         public QiyuesuoConfig()
         {
             this.accessToken = "替换为申请的App Token";
             this.accessSecret = "替换为申请的App Secret";
-            this.accessUrl = "https://openapi.qiyuesuo.cn";
+            this.accessUrl = "替换为开放平台请求地址";
         }
 
         public string AccessSecret { get => accessSecret; }

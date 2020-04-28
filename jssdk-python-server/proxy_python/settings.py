@@ -76,7 +76,7 @@ CORS_ALLOW_HEADERS = (
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
-    'nomes'  # 契约锁前端自定义
+    'nomes'  # 前端自定义
 )
 
 ROOT_URLCONF = 'proxy_python.urls'

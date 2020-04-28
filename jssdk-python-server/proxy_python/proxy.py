@@ -6,7 +6,7 @@ from proxy_python.RequestMethod import RequestMethod
 
 
 def do_proxy(request):
-    proxy_client = HttpClient('https://openapi.qiyuesuo.cn', '替换开放平台App Token', '替换开放平台App Secret')
+    proxy_client = HttpClient('替换开放平台请求地址', '替换开放平台App Token', '替换开放平台App Secret')
     if request.method == 'POST':
         post_data = request.POST
         request_data = post_data.get('requestData', default=None)
