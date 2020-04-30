@@ -2,6 +2,7 @@
 # encoding=utf-8
 import hashlib
 import time
+import uuid
 
 import requests
 
@@ -10,7 +11,7 @@ from proxy_python.SdkException import HttpException, BaseSdkException
 
 
 class HttpClient:
-    def __init__(self, serverUrl, accessToken, accessSecret):
+    def __init__(self, serverUrl: object, accessToken: object, accessSecret: object) -> object:
         self.__serverUrl = serverUrl
         self.__accessToken = accessToken
         self.__accessSecret = accessSecret
@@ -29,10 +30,12 @@ class HttpClient:
         url = self.__serverUrl + requestData.getApiUrl()
 
         global toMd5
+        nonce = uuid.uuid1()
         timestamp = str(int(time.time() * 1000))
-        headers = {'x-qys-open-signature': toMd5(self.__accessToken + self.__accessSecret + timestamp),
+        headers = {'x-qys-open-signature': toMd5(self.__accessToken + self.__accessSecret + timestamp + str(nonce)),
                    'x-qys-open-accesstoken': self.__accessToken,
                    'x-qys-open-timestamp': timestamp,
+                   'x-qys-open-nonce': str(nonce),
                    'version': "PROXY-PYTHON"}
 
         '''

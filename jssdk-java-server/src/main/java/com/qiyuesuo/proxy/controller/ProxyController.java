@@ -1,5 +1,7 @@
 package com.qiyuesuo.proxy.controller;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
@@ -99,11 +101,13 @@ public class ProxyController {
 	 */
 	private HttpHeader getHeader() {
 		String timeStamp = String.valueOf(System.currentTimeMillis());
-		String signature = MD5
-				.toMD5(new StringBuilder(this.accessToken).append(this.accessSecret).append(timeStamp).toString());
+		String nonce = UUID.randomUUID().toString();
+		String signature = MD5.toMD5(new StringBuilder(this.accessToken).append(this.accessSecret).append(timeStamp).append(nonce).toString());
 		HttpHeader httpHeader = new HttpHeader();
 		httpHeader.addProperty("x-qys-open-timestamp", timeStamp);
 		httpHeader.addProperty("x-qys-open-signature", signature);
+		httpHeader.addProperty("x-qys-open-nonce", nonce);
+		httpHeader.addProperty("x-qys-open-accesstoken", this.accessToken);
 		httpHeader.addProperty("x-qys-open-accesstoken", this.accessToken);
 		return httpHeader;
 	}

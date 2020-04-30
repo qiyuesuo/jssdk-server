@@ -118,9 +118,10 @@ namespace proxy_csharp.Controllers
         {
             double timestamp = (DateTime.Now.ToUniversalTime() - DateTime.Parse("1970-1-1")).TotalMilliseconds;
             MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] bSignature = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(config.AccessToken + config.AccessSecret + timestamp.ToString()));
+            string nonce = Guid.NewGuid().ToString();
+            byte[] bSignature = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(config.AccessToken + config.AccessSecret + timestamp.ToString() + nonce));
             string signature = StringUtils.ByteToString(bSignature, bSignature.Length);
-            HttpHeader header = new HttpHeader(config.AccessToken, timestamp, signature, "proxy-sharp");
+            HttpHeader header = new HttpHeader(config.AccessToken, timestamp, signature, "proxy-sharp", nonce);
             return header;
         }
 

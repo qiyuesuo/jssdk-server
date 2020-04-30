@@ -21,6 +21,7 @@ namespace proxy_csharp.Http
             request.Headers.Add("x-qys-open-timestamp", header.Timestamp.ToString());
             request.Headers.Add("x-qys-open-signature", header.Signature.ToLower());
             request.Headers.Add("x-qys-open-accesstoken", header.AccessToken);
+            request.Headers.Add("x-qys-open-nonce", header.Nonce);
             request.Headers.Add("version", header.Version);
 
             return request;
