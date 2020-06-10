@@ -9,7 +9,7 @@
 
 * 打开项目中的`Index`类，修改其中的`HttpClient`的构造方法为对接方自身的配置，需要指定对接方在契约锁开放平台申请的`access token`、`access secret`和转发的契约锁接口地址，测试环境接口地址： [https://openapi.qiyuesuo.cn](https://openapi.qiyuesuo.cn)，正式环境接口地址：[https://openapi.qiyuesuo.com](https://openapi.qiyuesuo.com)；
 * 该项目需要配合契约锁`JS-SDK`使用，在项目启动后，将项目接口地址写入`JS-SDK`的构造函数中，初始化`JS-SDK`；
-* 该项目是基于`PHP 5.4` 和 `ThinkPHP_5.0.24` 实现的，若对接方与此版本不一致，需要对示例中的代码做相应的兼容调整，以保证其正常运行；
+* 该项目是基于`PHP 5.4` 和 `ThinkPHP_5.0.24` 实现的，若对接方与此版本不一致，需要对示例中的代码做相应的兼容调整，以保证其正常运行，若不使用`ThinkPHP_5.0.24`,可将目录jssdk-php-server\proxy_php\application\index\controller下的index.php文件及jssdk-php-server\proxy_php\application下的HttpClient.php、HttpMethod.php、HttpParameter.php文件单独提取出来使用，做相应的兼容调整；
 * 项目启动后，`JS-SDK`填写的默认转发地址应该为`[host]/proxy_php/public/index.php`,若需要调整请自行调整。
 
 ### 关于
