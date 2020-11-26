@@ -116,7 +116,7 @@ namespace proxy_csharp.Controllers
         /// <returns></returns>
         private HttpHeader GetHttpHeader()
         {
-            double timestamp = (DateTime.Now.ToUniversalTime() - DateTime.Parse("1970-1-1")).TotalMilliseconds;
+            long timestamp = (long)(DateTime.Now.ToUniversalTime() - DateTime.Parse("1970-1-1")).TotalMilliseconds;
             MD5 md5 = new MD5CryptoServiceProvider();
             string nonce = Guid.NewGuid().ToString();
             byte[] bSignature = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(config.AccessToken + config.AccessSecret + timestamp.ToString() + nonce));
